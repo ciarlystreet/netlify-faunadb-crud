@@ -1,7 +1,9 @@
 /* Api methods to call /functions */
+const BASE_API_PATH = "/.netlify/functions";
 
 const create = (data) => {
-  return fetch("/.netlify/functions/todos-create", {
+  console.log("create", data);
+  return fetch(`${BASE_API_PATH}/todos-create`, {
     body: JSON.stringify(data),
     method: "POST",
   }).then((response) => {
@@ -10,13 +12,13 @@ const create = (data) => {
 };
 
 const readAll = () => {
-  return fetch("/.netlify/functions/todos-read-all").then((response) => {
+  return fetch(`${BASE_API_PATH}/todos-read-all`).then((response) => {
     return response.json();
   });
 };
 
 const update = (todoId, data) => {
-  return fetch(`/.netlify/functions/todos-update/${todoId}`, {
+  return fetch(`${BASE_API_PATH}/todos-update/${todoId}`, {
     body: JSON.stringify(data),
     method: "POST",
   }).then((response) => {
@@ -25,7 +27,7 @@ const update = (todoId, data) => {
 };
 
 const deleteTodo = (todoId) => {
-  return fetch(`/.netlify/functions/todos-delete/${todoId}`, {
+  return fetch(`${BASE_API_PATH}/todos-delete/${todoId}`, {
     method: "POST",
   }).then((response) => {
     return response.json();
@@ -33,7 +35,7 @@ const deleteTodo = (todoId) => {
 };
 
 const batchDeleteTodo = (todoIds) => {
-  return fetch(`/.netlify/functions/todos-delete-batch`, {
+  return fetch(`${BASE_API_PATH}/todos-delete-batch`, {
     body: JSON.stringify({
       ids: todoIds,
     }),

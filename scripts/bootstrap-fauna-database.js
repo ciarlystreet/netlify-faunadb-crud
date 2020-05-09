@@ -8,7 +8,7 @@ const q = faunadb.query;
 console.log(chalk.cyan("Creating your FaunaDB Database...\n"));
 
 // 1. Check for required enviroment variables
-if (!process.env.FAUNADB_SECRET) {
+if (!process.env.VUE_APP_FAUNADB_SECRET) {
   console.log(
     chalk.yellow("Required FAUNADB_SECRET enviroment variable not found.")
   );
@@ -41,8 +41,8 @@ if (!process.env.FAUNADB_SECRET) {
 }
 
 // Has var. Do the thing
-if (process.env.FAUNADB_SECRET) {
-  createFaunaDB(process.env.FAUNADB_SECRET).then(() => {
+if (process.env.VUE_APP_FAUNADB_SECRET) {
+  createFaunaDB(process.env.VUE_APP_FAUNADB_SECRET).then(() => {
     console.log("Database created");
   });
 }

@@ -1,15 +1,18 @@
 <template>
   <div>
-    <button @click="create">Create</button>
+    <button @click="createTodo">Create</button>
   </div>
 </template>
 
 <script>
-import { create as createTodo } from "@/utils/todo-fauna-api";
+import todoFaunaApi from "@/utils/todo-fauna-api";
 export default {
   name: "CreateTodo",
+  mounted() {
+    console.log(process.env);
+  },
   methods: {
-    create() {
+    createTodo() {
       // Todo data
       const myTodo = {
         title: "My todo title",
@@ -17,7 +20,8 @@ export default {
       };
 
       // create it!
-      createTodo(myTodo)
+      todoFaunaApi
+        .create(myTodo)
         .then((response) => {
           console.log("API response", response);
           // set app state
