@@ -5,9 +5,9 @@
   "scripts": {
     "lint": "vue-cli-service lint",
     "bootstrap": "node ./scripts/bootstrap-fauna-database.js",
-    "start": "npm-run-all --parallel start:app start:server",
-    "start:app": "vue-cli-service serve",
-    "start:server": "netlify-lambda serve src/functions -c ./webpack.config.js",
+    "serve": "npm-run-all --parallel serve:app serve:server",
+    "serve:app": "vue-cli-service serve",
+    "serve:server": "netlify-lambda serve src/functions -c ./webpack.config.js",
     "prebuild": "echo 'setup faunaDB' && yarn bootstrap",
     "build": "npm-run-all --parallel build:app build:functions",
     "build:app": "vue-cli-service build",
