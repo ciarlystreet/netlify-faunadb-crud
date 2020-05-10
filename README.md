@@ -26,7 +26,9 @@ To setup a FaunaDB account and get the API key we'll use to scaffold out our tod
 5. **Create your FaunaDB database**
 
 ```bash
-    yarn bootstrap
+
+yarn bootstrap
+
 ```
 
 ## Project setup
