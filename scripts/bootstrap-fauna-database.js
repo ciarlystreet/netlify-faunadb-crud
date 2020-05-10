@@ -10,14 +10,16 @@ console.log(chalk.cyan("Creating your FaunaDB Database...\n"));
 // 1. Check for required enviroment variables
 if (!process.env.VUE_APP_FAUNADB_SECRET) {
   console.log(
-    chalk.yellow("Required FAUNADB_SECRET enviroment variable not found.")
+    chalk.yellow(
+      "Required VUE_APP_FAUNADB_SECRET enviroment variable not found."
+    )
   );
   if (insideNetlify) {
     console.log(
       `Visit https://app.netlify.com/sites/YOUR_SITE_HERE/settings/deploys`
     );
     console.log(
-      'and set a `FAUNADB_SECRET` value in the "Build environment variables" section'
+      'and set a `VUE_APP_FAUNADB_SECRET` value in the "Build environment variables" section'
     );
     process.exit(1);
   }

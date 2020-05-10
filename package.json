@@ -9,9 +9,9 @@
     "start:app": "vue-cli-service serve",
     "start:server": "netlify-lambda serve src/functions -c ./webpack.config.js",
     "prebuild": "echo 'setup faunaDB' && yarn bootstrap",
-    "build": "npm-run-all --parallel build:**",
+    "build": "npm-run-all --parallel build:app build:functions",
     "build:app": "vue-cli-service build",
-    "build:functions": "netlify-lambda build functions -c ./webpack.config.js"
+    "build:functions": "netlify-lambda build src/functions -c ./webpack.config.js"
   },
   "dependencies": {
     "core-js": "^3.6.4",
