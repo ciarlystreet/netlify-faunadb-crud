@@ -2,7 +2,6 @@
 const BASE_API_PATH = "/.netlify/functions";
 
 const create = (data) => {
-  console.log("create", data);
   return fetch(`${BASE_API_PATH}/todos-create`, {
     body: JSON.stringify(data),
     method: "POST",
