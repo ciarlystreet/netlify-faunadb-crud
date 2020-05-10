@@ -24,6 +24,7 @@
     "@vue/cli-service": "~4.3.0",
     "babel-eslint": "^10.1.0",
     "chalk": "^4.0.0",
+    "encoding": "^0.1.12",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "netlify-lambda": "^1.6.3",
