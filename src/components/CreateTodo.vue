@@ -9,9 +9,6 @@
 import todoFaunaApi from "@/utils/todo-fauna-api";
 export default {
   name: "CreateTodo",
-  mounted() {
-    console.log(process.env);
-  },
   methods: {
     callLambda() {
       fetch("/.netlify/functions/hello")
