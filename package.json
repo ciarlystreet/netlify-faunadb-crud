@@ -7,11 +7,11 @@
     "bootstrap": "node ./scripts/bootstrap-fauna-database.js",
     "serve": "npm-run-all --parallel serve:app serve:server",
     "serve:app": "vue-cli-service serve",
-    "serve:server": "netlify-lambda serve src/functions -c ./webpack.config.js",
+    "serve:server": "netlify-lambda serve src/lambda -c ./webpack.config.js",
     "prebuild": "echo 'setup faunaDB' && yarn bootstrap",
     "build": "npm-run-all --parallel build:app build:functions",
     "build:app": "vue-cli-service build",
-    "build:functions": "netlify-lambda build src/functions -c ./webpack.config.js"
+    "build:functions": "netlify-lambda build src/lambda -c ./webpack.config.js"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -50,13 +50,5 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "proxy": {
-    "/.netlify/functions": {
-      "target": "http://localhost:9000",
-      "pathRewrite": {
-        "^/\\.netlify/functions": ""
-      }
-    }
-  }
+  ]
 }

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button @click="createTodo">Create</button>
+    <button @click="callLambda">callLambda</button>
+    <button @click="createTodo">createTodo</button>
   </div>
 </template>
 
@@ -12,6 +13,13 @@ export default {
     console.log(process.env);
   },
   methods: {
+    callLambda() {
+      fetch("/.netlify/functions/hello")
+        .then((response) => response.json())
+        .then((json) => {
+          this.lambdaMsg = json.msg;
+        });
+    },
     createTodo() {
       // Todo data
       const myTodo = {
